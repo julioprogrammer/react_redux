@@ -5,6 +5,7 @@ import Header from '../../components/Header'
 import SideBar from '../../components/SideBar'
 import Footer from '../../components/Footer'
 import Routes from '../../routes'
+import Messages from '../../common/template/msg'
 
 const App = props => (
     <div className='wrapper'>
@@ -14,6 +15,7 @@ const App = props => (
             <Routes />
         </div>
         <Footer />
+        <Messages />
     </div>
 )
 
