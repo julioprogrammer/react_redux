@@ -7,19 +7,21 @@ import {init} from '../../redux/actions/billingCycleActions'
 
 class BillingCycleForm extends Component {
     render() {
-        const {handleSubmit} = this.props
+        const {handleSubmit, readOnly} = this.props
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component={LabelAndInput}
+                    <Field name='name' component={LabelAndInput} readOnly={readOnly}
                         label='Nome' cols='12 4' placeholder='Informe o nome' />
-                    <Field name='month' component={LabelAndInput}
+                    <Field name='month' component={LabelAndInput} readOnly={readOnly}
                         label='Mês' cols='12 4' placeholder='Informe o mês' />
-                    <Field name='year' component={LabelAndInput}
+                    <Field name='year' component={LabelAndInput} readOnly={readOnly}
                         label='Ano' cols='12 4' placeholder='Informe o ano' />
                 </div>
                 <div className='box-footer'>
-                    <button type='submit' className='btn btn-primary'>Submit</button>
+                    <button type='submit' className={`btn btn-${this.props.submitClass}`}>
+                        {this.props.submitLabel}
+                    </button>
                     <button type='button' className='btn btn-default' onClick={this.props.init}>Cancelar</button>
                 </div>
             </form>
